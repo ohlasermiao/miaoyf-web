@@ -235,7 +235,7 @@ code {
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
 }
 .shot img {
-  width: 100%; aspect-ratio: 16 / 10; object-fit: cover;
+  width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover;
   border: 1px solid var(--line); border-radius: var(--radius); display: block;
 }
 .shot__placeholder span { font-weight: 700; color: var(--ink-soft); }
@@ -257,6 +257,12 @@ code {
 }
 .about__stats strong { display: block; font-size: 30px; font-weight: 800; color: var(--blurple); }
 .about__stats span { font-size: 13.5px; color: var(--muted); }
+.about__activity { margin: 34px 0 0; }
+.about__activity img {
+  width: 100%; display: block;
+  border: 1px solid var(--line); border-radius: var(--radius);
+}
+.about__activity figcaption { margin-top: 12px; font-size: 14px; color: var(--muted); text-align: center; }
 
 /* ---------- Contact CTA ---------- */
 .section--cta {
@@ -267,6 +273,39 @@ code {
 }
 .section--cta h2 { font-size: clamp(26px, 4vw, 38px); font-weight: 800; color: #fff; }
 .section--cta > .container > p { margin-top: 14px; color: #b8c0d9; font-size: 17px; }
+/* Inquiry form */
+.inquiry {
+  max-width: 560px; margin: 36px auto 0; text-align: left;
+  display: grid; gap: 16px;
+}
+.inquiry__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.inquiry__field { display: grid; gap: 7px; }
+.inquiry__field > span { font-size: 13.5px; font-weight: 600; color: #cdd3e6; }
+.inquiry__field em { color: #8b93ad; font-style: normal; font-weight: 400; }
+.inquiry input,
+.inquiry textarea {
+  width: 100%;
+  font: inherit; font-size: 15px;
+  color: #fff;
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 10px;
+  padding: 12px 14px;
+  transition: border-color .15s ease, background .15s ease;
+}
+.inquiry textarea { resize: vertical; min-height: 96px; }
+.inquiry input::placeholder,
+.inquiry textarea::placeholder { color: #6f7896; }
+.inquiry input:focus,
+.inquiry textarea:focus {
+  outline: none;
+  border-color: var(--blurple);
+  background: rgba(255, 255, 255, .1);
+}
+.inquiry__hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.inquiry__submit { justify-self: start; margin-top: 4px; }
+.contact__or { margin-top: 30px; color: #8b93ad; font-size: 14px; }
+
 .contact__card {
   display: inline-flex; align-items: center; gap: 14px;
   background: rgba(255, 255, 255, .06);
@@ -318,6 +357,7 @@ code {
   .hero { padding: 64px 0 56px; }
   .section { padding: 60px 0; }
   .grid--features, .grid--pricing, .grid--shots, .grid--tech,
-  .steps, .about__stats { grid-template-columns: 1fr; }
+  .steps, .about__stats, .inquiry__row { grid-template-columns: 1fr; }
+  .inquiry__submit { justify-self: stretch; text-align: center; }
   .price--featured { order: -1; }
 }

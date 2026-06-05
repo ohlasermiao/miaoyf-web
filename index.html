@@ -42,7 +42,7 @@
     },
     "offers": [
       { "@type": "Offer", "name": "Self-Deploy", "price": "90", "priceCurrency": "USD" },
-      { "@type": "Offer", "name": "Assisted", "price": "150", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Assisted", "price": "180", "priceCurrency": "USD" },
       { "@type": "Offer", "name": "Managed", "price": "240", "priceCurrency": "USD" }
     ]
   }
@@ -231,7 +231,7 @@
           <article class="card price price--featured">
             <span class="price__badge">Most popular</span>
             <h3 class="price__name">Assisted</h3>
-            <p class="price__amount">$150</p>
+            <p class="price__amount">$180</p>
             <p class="price__tag">Get it live with me on a call</p>
             <ul class="price__list">
               <li>Everything in Self-Deploy</li>
@@ -270,24 +270,15 @@
 
         <div class="grid grid--shots">
           <figure class="shot">
-            <div class="shot__placeholder" role="img" aria-label="Railway deployment screenshot coming soon">
-              <span>Railway deployment</span>
-              <small>screenshot coming soon</small>
-            </div>
+            <img src="assets/screenshots/railway.jpg" alt="Railway deployment dashboard showing an active, successful deployment" loading="lazy" width="1600" height="1000" />
             <figcaption>Always-on deployment on Railway.</figcaption>
           </figure>
           <figure class="shot">
-            <div class="shot__placeholder" role="img" aria-label="Supabase database screenshot coming soon">
-              <span>Supabase database</span>
-              <small>screenshot coming soon</small>
-            </div>
-            <figcaption>Structured, auditable data in Supabase.</figcaption>
+            <img src="assets/screenshots/supabase.jpg" alt="Supabase schema visualizer showing the subscriptions and members data model" loading="lazy" width="1600" height="1000" />
+            <figcaption>Structured, auditable data model in Supabase.</figcaption>
           </figure>
           <figure class="shot">
-            <div class="shot__placeholder" role="img" aria-label="Discord slash commands screenshot coming soon">
-              <span>Discord commands</span>
-              <small>screenshot coming soon</small>
-            </div>
+            <img src="assets/screenshots/discord.jpg" alt="Discord slash command list: /info, /extend, /revoke, /approve, /discard" loading="lazy" width="1600" height="1000" />
             <figcaption>Slash commands in action inside Discord.</figcaption>
           </figure>
         </div>
@@ -346,6 +337,10 @@
             <li><strong>19</strong><span>end-to-end tests</span></li>
             <li><strong>8</strong><span>incident runbooks</span></li>
           </ul>
+          <figure class="about__activity">
+            <img src="assets/github-activity.jpg" alt="GitHub contribution activity showing sustained development over the past year" loading="lazy" />
+            <figcaption>Ongoing, active development — GitHub contribution history.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -354,7 +349,35 @@
     <section class="section section--cta" id="contact">
       <div class="container container--narrow">
         <h2>Ready to automate your memberships?</h2>
-        <p>Message me on Discord and tell me about your server. I usually reply within a day.</p>
+        <p>Tell me about your server and what you need. I usually reply within a day.</p>
+
+        <!-- Inquiry form — submissions go to Formspree (form meeweeqr). -->
+        <form class="inquiry" action="https://formspree.io/f/meeweeqr" method="POST">
+          <div class="inquiry__row">
+            <label class="inquiry__field">
+              <span>Your name</span>
+              <input type="text" name="name" autocomplete="name" required />
+            </label>
+            <label class="inquiry__field">
+              <span>Email or Discord</span>
+              <input type="text" name="contact" placeholder="you@email.com or @handle" required />
+            </label>
+          </div>
+          <label class="inquiry__field">
+            <span>Server size <em>(optional)</em></span>
+            <input type="text" name="server_size" placeholder="e.g. 1,200 members, ~300 paid" />
+          </label>
+          <label class="inquiry__field">
+            <span>What do you need?</span>
+            <textarea name="message" rows="4" placeholder="Tell me about your membership setup and which tier you're considering." required></textarea>
+          </label>
+          <!-- spam honeypot: bots fill this, humans never see it -->
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="inquiry__hp" />
+          <input type="hidden" name="_subject" value="New RolePilot inquiry" />
+          <button type="submit" class="btn btn--primary inquiry__submit">Send inquiry</button>
+        </form>
+
+        <p class="contact__or">or reach me directly on</p>
         <div class="contact__card">
           <span class="contact__label">Discord</span>
           <span class="contact__value">@miaoyf</span>

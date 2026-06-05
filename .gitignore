@@ -1,0 +1,6 @@
+# Raw image materials — local only, never deployed.
+# Drop originals in _inbox/, I crop them and output finished files into assets/.
+_inbox/
+
+# OS / editor noise
+.DS_Store
